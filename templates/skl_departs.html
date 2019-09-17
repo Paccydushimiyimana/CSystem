@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+        <ol class="breadcrumb my-4">
+          <li class="breadcrumb-item">College</li>
+          <li class="breadcrumb-item">{{ school.college.name }}</li>
+          <li class="breadcrumb-item active">{{ school.name }}</li>
+        </ol>
+        
+      </div>
+      {% for depart in school.departments.all %}
+          {{depart.name}}
+      {% endfor %}
+{% endblock %}

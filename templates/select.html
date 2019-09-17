@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  
+<div class="jumbotron" >
+  <form method="POST">
+   Users:
+     <select name='users' >
+            <option value=''>----------------</option>
+        {% for user in users %}
+            <option value=''>{{user.username}}</option>
+        {% endfor %}
+     </select><br><br>
+  Schools:
+     <select name='users'>
+            <option value=''>----------------</option>
+        {% for school in schools %}
+            <option value=''>{{school.name}}</option>
+        {% endfor %}
+     </select><br><br>
+  Departments:
+     <select name='users'>
+            <option value=''>----------------</option>
+        {% for department in departments %}
+            <option value=''>{{department.name}}</option>
+        {% endfor %}
+     </select><br><br>
+  Levels:
+     <select name='users'>
+            <option value=''>----------------</option>
+        {% for level in levels %}
+            <option value=''>{{level.name}}</option>
+        {% endfor %}
+     </select>   
+
+
+     
+  </form>
+</div> 
+<br>
+    <!-- <form method="POST">
+        Cars:
+        <select name="cars" >
+            <option value=""></option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>  
+        <br>
+    </form>  -->
+{% endblock %}
+
+

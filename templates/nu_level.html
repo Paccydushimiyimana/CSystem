@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Level</label>
+            <input type="text" class="form-control" id="id_name" name="name">
+        </div>
+        <button type="submit" class="btn btn-success">Post</button>
+    </form>    
+</div>
+{% endblock %}
