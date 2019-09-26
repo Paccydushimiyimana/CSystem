@@ -12,43 +12,41 @@
         {% endfor %}
      </select><br><br>
   Schools:
-     <select name='users'>
+     <select name='sname' id="scl">
             <option value=''>----------------</option>
         {% for school in schools %}
-            <option value=''>{{school.name}}</option>
+            <option value='{{school.pk}}'>{{school.name}}</a></option>
+        
         {% endfor %}
+            <option value="index.html">dddddd</option>
      </select><br><br>
+     
   Departments:
-     <select name='users'>
-            <option value=''>----------------</option>
-        {% for department in departments %}
+     <select name='users' >
+            <option value='' >----------------</option>
+        {% for department in school.departments.all %}
             <option value=''>{{department.name}}</option>
         {% endfor %}
      </select><br><br>
+    
   Levels:
      <select name='users'>
             <option value=''>----------------</option>
         {% for level in levels %}
             <option value=''>{{level.name}}</option>
         {% endfor %}
-     </select>   
-
-
-     
+     </select>        
   </form>
 </div> 
 <br>
-    <!-- <form method="POST">
-        Cars:
-        <select name="cars" >
-            <option value=""></option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
-        </select>  
-        <br>
-    </form>  -->
+    
 {% endblock %}
-
+{% block script %}
+<script type="text/javascript">
+ var urlmenu = document.getElementById( 'scl' );
+ urlmenu.onchange = function() {
+      window.open( this.options[ this.selectedIndex ].value );
+ };
+</script>
+{% endblock %}
 

@@ -1,19 +1,23 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Person,Department
 
-class SignUpForm(UserCreationForm):
-    first_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    last_name = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
-    phone = forms.IntegerField()
-    stdtype = forms.CharField(max_length=30, help_text='your type')
-    regnumber = forms.IntegerField() 
-    level = forms.IntegerField()
-    school = forms.CharField(max_length=30, help_text='your school')
-    department = forms.CharField(max_length=30, help_text='your department')
 
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'password1', 'password2', 'phone','stdtype','regnumber',
-                    'level','school','department')
+# class PersonForm(forms.ModelForm):
+#     class Meta:
+#         model = Person
+#         fields = ('name', 'school', 'department')
+
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['department'].queryset = Department.objects.none()
+
+#         if 'school' in self.data:
+#             try:
+#                 school_id = int(self.data.get('school'))
+#                 self.fields['department'].queryset = Department.objects.filter(school_id=school_id).order_by('name')
+#             except (ValueError, TypeError):
+#                 pass  # invalid input from the client; ignore and fallback to empty Department queryset
+#         elif self.instance.pk:
+#             self.fields['department'].queryset = self.instance.school.department_set.order_by('name')
